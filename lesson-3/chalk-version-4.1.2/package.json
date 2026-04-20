@@ -1,0 +1,23 @@
+{
+  "name": "aqa-advanced",
+  "version": "1.0.0",
+  "description": "test repo for \"hillel_js_for_qa\" course",
+  "homepage": "https://github.com/mykola-b-test/aqa-advanced#readme",
+  "bugs": {
+    "url": "https://github.com/mykola-b-test/aqa-advanced/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykola-b-test/aqa-advanced.git"
+  },
+  "license": "ISC",
+  "author": "Mykola B",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "devDependencies": {
+    "chalk": "4.1.2"
+  }
+}
