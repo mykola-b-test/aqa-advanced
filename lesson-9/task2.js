@@ -7,5 +7,4 @@ const book = {
 
 const { title, author } = book;
 
-console.log(title);
-console.log(author);
+console.log(title, author);
