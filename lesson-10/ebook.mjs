@@ -22,6 +22,9 @@ class Ebook extends Book {
     };
 
     static bookTransformToEbook(book, fileFormat) {
+        if (!(book instanceof Book)) {
+            throw new Error("The provided object is not an instance of Book.");
+        }
         return new Ebook(book.bookTitle, book.bookAuthor, book.yearPublished, fileFormat);
     }
 

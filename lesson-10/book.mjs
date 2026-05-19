@@ -47,13 +47,20 @@ class Book {
         return `Book Title: ${this.bookTitle}, Book Author: ${this.bookAuthor}, Year of publication: ${this.yearPublished}`;
     }
 
+    // static oldestBook(books) {
+    //     let oldestBook = books[0];
+    //     for (const item of books) {
+    //         if (item.yearPublished < oldestBook.yearPublished) {
+    //             oldestBook = item;
+    //         }
+    //     }
+    //     return oldestBook;
+    // }
+    
     static oldestBook(books) {
-        let oldestBook = books[0];
-        for (const item of books) {
-            if (item.yearPublished < oldestBook.yearPublished) {
-                oldestBook = item;
-            }
-        }
+        let oldestBook = books.reduce((oldest, current) => {
+            return current.yearPublished < oldest.yearPublished ? current : oldest;
+        }, books[0]);
         return oldestBook;
     }
 };
