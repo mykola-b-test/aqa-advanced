@@ -1,11 +1,11 @@
 
-const todoFetch = () => fetch('https://jsonplaceholder.typicode.com/todos/1')
+const todoFetch = (id) => fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then(response => response.json());
 
-const userFetch = () => fetch('https://jsonplaceholder.typicode.com/users/1')
+const userFetch = (id) => fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(response => response.json());
 
-const collection = [todoFetch(), userFetch()];
+const collection = [todoFetch(1), userFetch(1)];
 
 Promise.all(collection)
     .then(([todo, user]) => {
