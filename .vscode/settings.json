@@ -1,0 +1,4 @@
+{
+    "prettier.configPath": "lesson-12/prettier/.prettierrc.json",
+    "prettier.ignorePath": "lesson-12/prettier/.prettierignore"
+}
