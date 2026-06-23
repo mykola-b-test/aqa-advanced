@@ -2,10 +2,23 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
     allowCypressEnv: true,
+
     env: {
-        TEST_VAR_1: 'test value 1 in config',
-        test_mail: 'test_user@gmail.com',
-        test_password: 'TestUser1',
+        testUserCredentials_1: {
+            username: 'test_user@gmail.com',
+            password: 'TestUser1'
+        },
+        testUserCredentials_2: {
+            username: 'test_user@gmail.com',
+            password: 'TestUser1'
+        },
+    },
+
+    expose: {
+        authCredentials: {
+            username: 'guest',
+            password: 'welcome2qauto',
+        },
     },
     e2e: {
         setupNodeEvents(on, config) {
