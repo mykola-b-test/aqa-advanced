@@ -1,8 +1,8 @@
 export class LoginPage {
     selectors = {
-        signInButton: () => cy.xpath('//button[contains(text(),"Sign In")]'),
-        guestLoginButton: () => cy.xpath('//button[contains(text(),"Guest log in")]'),
-        signUpButton: () => cy.xpath('//button[contains(text(),"Sign up")]')
+        signInButton: () => cy.contains('button', 'Sign In'),
+        guestLoginButton: () => cy.contains('button', 'Guest log in'),
+        signUpButton: () => cy.contains('button', 'Sign up')
     };
 
     clickSignInButton() {

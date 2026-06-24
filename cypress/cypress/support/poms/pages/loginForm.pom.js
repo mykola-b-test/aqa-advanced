@@ -4,9 +4,9 @@ export class LoginForm {
         emailInput: () => cy.get('#signinEmail'),
         passwordInput: () => cy.get('#signinPassword'),
         rememberMeCheckbox: () => cy.get('#remember'),
-        forgotPasswordLink: () => cy.xpath('//button[contains(text(),"Forgot password")]'),
-        registrationLink: () => cy.xpath('//button[contains(text(),"Registration")]'),
-        loginButton: () => cy.xpath('//button[contains(text(),"Login")]'),
+        forgotPasswordLink: () => cy.contains('button', 'Forgot password'),
+        registrationLink: () => cy.contains('button', 'Registration'),
+        loginButton: () => cy.contains('button', 'Login'),
     };
 
     closeLoginForm() {
@@ -35,5 +35,13 @@ export class LoginForm {
 
     clickLoginButton() {
         this.selectors.loginButton().click();
+    }
+
+    //--- verify success login flow methods
+    verifySuccessLoginFlow() {
+        cy.url().should('eq', 'https://qauto.forstudy.space/panel/garage');
+        cy.get('.alert.alert-success')
+            .should('be.visible')
+            .contains('You have been successfully logged in');
     }
 }
