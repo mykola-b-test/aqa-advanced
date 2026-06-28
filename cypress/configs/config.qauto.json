@@ -1,0 +1,10 @@
+
+{
+    "baseUrl": "https://qauto.forstudy.space/",
+    "env": {
+        "test_user_credentials": {
+            "username": "test_user@gmail.com",
+            "password": "TestUser1"
+        }
+    }
+}
