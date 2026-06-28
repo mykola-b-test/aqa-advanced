@@ -33,13 +33,14 @@ export class LoginForm {
         this.selectors.registrationLink().click();
     }
 
-    clickLoginButton() {
+    clickLoginButton() {   
         this.selectors.loginButton().click();
     }
 
     //--- verify success login flow methods
     verifySuccessLoginFlow() {
-        cy.url().should('eq', 'https://qauto.forstudy.space/panel/garage');
+        const baseUrl = Cypress.config('baseUrl'); 
+        cy.url().should('eq', `${baseUrl}panel/garage`);
         cy.get('.alert.alert-success')
             .should('be.visible')
             .contains('You have been successfully logged in');

@@ -1,3 +1,7 @@
 node_modules
 cypress/e2e/1-getting-started
 cypress/e2e/2-advanced-examples
+configs/config.qauto.json
+configs/config.qauto2.json
+cypress.config.js
+cypress/reports
