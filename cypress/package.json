@@ -7,8 +7,13 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:open": "TZ=UTC cypress open",
+    "cypress:open:chrome:env:qauto": "TZ=UTC cypress open --browser chrome --env qauto=true",
+    "cypress:open:chrome:env:qauto2": "TZ=UTC cypress open --browser chrome --env qauto2=true",
+    "cypress:run:chrome:env:qauto:lesson_21": "TZ=UTC cypress run --browser chrome --env qauto=true --spec cypress/e2e/qauto_test/lesson_21.cy.js",
+    "cypress:run:chrome:env:qauto2:lesson_21": "TZ=UTC cypress run --browser chrome --env qauto2=true --spec cypress/e2e/qauto_test/lesson_21.cy.js",
+    "merge:reports": "mochawesome-merge cypress/reports/mochawesome/*.json -o cypress/reports/mochawesome/index.json",
+    "generate:report": "npx marge cypress/reports/mochawesome/index.json -d cypress/reports/mochawesome/html-report"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
@@ -16,10 +21,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "cypress-mochawesome-reporter": "^4.0.2",
     "cypress-xpath": "^2.0.1",
     "eslint": "^10.5.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-cypress": "^6.4.1",
-    "eslint-plugin-mocha": "^11.3.0"
+    "eslint-plugin-mocha": "^11.3.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }

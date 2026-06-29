@@ -1,18 +1,7 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
-    allowCypressEnv: true,
-
-    env: {
-        testUserCredentials_1: {
-            username: 'test_user@gmail.com',
-            password: 'TestUser1'
-        },
-        testUserCredentials_2: {
-            username: 'test_user@gmail.com',
-            password: 'TestUser1'
-        },
-    },
+    allowCypressEnv: false,
 
     expose: {
         authCredentials: {
@@ -20,9 +9,18 @@ module.exports = defineConfig({
             password: 'welcome2qauto',
         },
     },
+
+    reporter: 'cypress-mochawesome-reporter',
+
+
     e2e: {
         setupNodeEvents(on, config) {
-            // implement node event listeners here
+            require('cypress-mochawesome-reporter/plugin')(on);
+            const testEnv = config.env.qauto2 ? 'qauto2' : 'qauto';
+            const configValue = require(`./configs/config.${testEnv}.json`);
+            config.env = { ...config.env,...configValue.env };
+            config = { ...config, ...configValue };
+            return config;
         },
     },
 });
