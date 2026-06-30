@@ -5,3 +5,4 @@ export * from './addCarForm.pom.js';
 export * from './addCarExpenseForm.pom.js';
 export * from './editCarForm.pom.js';
 export * from './garagePage.pom.js';
+export * from './fuelExpensesPage.pom.js';
