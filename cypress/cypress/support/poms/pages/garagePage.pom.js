@@ -5,10 +5,13 @@ export class GaragePage {
         editFirstCarButton: () => cy.get('.car_actions .icon-edit').first(),
     };
 
+    selectorCarCard = {
+        carInListByName: (carBrand, carModel) => cy.contains('.car-item', `${carBrand} ${carModel}`).first(),
+    };
     // verify buttons are visible methods
     verifyAddNewCarButtonIsVisible() {
         this.selectorsButtons.addNewCarButton().should('be.visible');
-    }
+    }   
     verifyAddNewFuelExpenseFirstCarButtonIsVisible() {
         this.selectorsButtons.addNewFuelExpenseFirstCarButton().should('be.visible');
     }
@@ -25,5 +28,13 @@ export class GaragePage {
     }
     clickEditFirstCarButton() {
         this.selectorsButtons.editFirstCarButton().click();
+    }
+
+    // verify car card is visible methods
+    verifyCarCardIsVisible(carBrand, carModel, carMileage) {
+        this.selectorCarCard.carInListByName(carBrand, carModel)
+            .should('be.visible')
+            .find('input[name="miles"]')
+            .should('have.value', carMileage);
     }
 }

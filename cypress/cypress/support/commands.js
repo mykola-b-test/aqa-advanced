@@ -48,4 +48,19 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
     auth: Cypress.expose('authCredentials'),
     ...options,
    });
-}); 
+});
+
+Cypress.Commands.add('addExpense', (carId, reportedAt, mileage, liters, totalCost) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/expenses',
+        body: {
+            carId: carId,
+            reportedAt: reportedAt,
+            mileage: mileage,
+            liters: liters,
+            totalCost: totalCost,
+        }}).then((response) => {
+            return response;
+          });
+});
