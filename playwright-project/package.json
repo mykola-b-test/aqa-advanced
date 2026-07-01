@@ -1,0 +1,29 @@
+{
+  "name": "aqa-advanced",
+  "version": "1.0.0",
+  "description": "test repo for \"hillel_js_for_qa\" course",
+  "main": "index.js",
+  "scripts": {
+    "playwright:test": "playwright test",
+    "playwright:test:headed": "playwright test --headed",
+    "playwright:test:headed:chrome": "playwright test --headed --project='Google Chrome'",
+    "playwright:test:ui": "playwright test --ui",
+    "playwright:test:debug": "playwright test --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykola-b-test/aqa-advanced.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mykola-b-test/aqa-advanced/issues"
+  },
+  "homepage": "https://github.com/mykola-b-test/aqa-advanced#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1"
+  }
+}
