@@ -2,12 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Example test', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://qauto.forstudy.space/', {
-            auth: {
-                username: 'guest',
-                password: 'welcome2qauto',
-            },
-        });
+        await page.goto('https://qauto.forstudy.space/');
       });
     //--- Registration form elements visibility tests ---
     test('check the registration form elements visibility', async ({ page }) => {
