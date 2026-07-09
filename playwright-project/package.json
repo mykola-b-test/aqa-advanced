@@ -10,7 +10,7 @@
     "playwright:test:ui": "playwright test --ui",
     "playwright:test:debug": "playwright test --debug",
     "playwright:test:chrome:ui:lesson-24": "playwright test e2e/lesson-24.spec.js --ui --project='Google Chrome'",
-    "playwright:test:chrome:ui:headed:lesson-24": "playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'"
+    "playwright:test:chrome:headed:lesson-24": "playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,1 @@
+export * from '../../poms/registrationForm/RegistrationForm.pom';
