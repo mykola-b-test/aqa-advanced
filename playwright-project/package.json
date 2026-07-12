@@ -10,7 +10,11 @@
     "playwright:test:ui": "playwright test --ui",
     "playwright:test:debug": "playwright test --debug",
     "playwright:test:chrome:ui:lesson-24": "playwright test e2e/lesson-24.spec.js --ui --project='Google Chrome'",
-    "playwright:test:chrome:headed:lesson-24": "playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'"
+    "playwright:test:chrome:headed:lesson-24": "playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'",
+    "playwright:test:chrome:headed:lesson-24:export_env": "export $(cat .env) && playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'",
+    "playwright:test:chrome:headed:lesson-24:dotenv_config": "playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'",
+    "playwright:test:chrome:headed:lesson-24:qauto1": "cross-env TEST_ENV=qauto1 playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'",
+    "playwright:test:chrome:headed:lesson-24:qauto2": "cross-env TEST_ENV=qauto2 playwright test e2e/lesson-24.spec.js --headed --project='Google Chrome'"
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,8 @@
   "homepage": "https://github.com/mykola-b-test/aqa-advanced#readme",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
-    "@types/node": "^26.0.1"
+    "@types/node": "^26.0.1",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2"
   }
 }
