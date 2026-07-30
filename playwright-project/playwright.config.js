@@ -1,7 +1,9 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-dotenv.config({ path: `./src/config/env/.env.${process.env.TEST_ENV || 'qauto1'}` });
+dotenv.config({
+    path: `./src/config/env/.env.${process.env.TEST_ENV || 'qauto1'}`,
+});
 
 /**
  * Read environment variables from file.
@@ -15,82 +17,94 @@ dotenv.config({ path: `./src/config/env/.env.${process.env.TEST_ENV || 'qauto1'}
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './e2e',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined, 
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  expect: {
-    timeout: 5000,
-  },
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space/',
-    video: 'on',
-    screenshot: 'on',
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
-    httpCredentials: {
-      username: `${process.env.HTTP_CREDENTIALS_USERNAME}`,
-      password: `${process.env.HTTP_CREDENTIALS_PASSWORD}`,
+    testDir: './e2e',
+    /* Run tests in files in parallel */
+    fullyParallel: true,
+    /* Fail the build on CI if you accidentally left test.only in the source code. */
+    forbidOnly: !!process.env.CI,
+    /* Retry on CI only */
+    retries: process.env.CI ? 2 : 0,
+    /* Opt out of parallel tests on CI. */
+    workers: process.env.CI ? 1 : undefined,
+    /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+    reporter: 'html',
+    expect: {
+        timeout: 5000,
     },
-  },
-
-  /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+    /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+    use: {
+        /* Base URL to use in actions like `await page.goto('')`. */
+        baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space/',
+        video: 'off',
+        screenshot: 'off',
+        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        trace: 'on',
+        httpCredentials: {
+            username: `${process.env.HTTP_CREDENTIALS_USERNAME}`,
+            password: `${process.env.HTTP_CREDENTIALS_PASSWORD}`,
+        },
     },
 
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
+    /* Configure projects for major browsers */
+    projects: [
+        {
+            name: 'chromium',
+            use: { ...devices['Desktop Chrome'] },
+        },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+        {
+            name: 'Google Chrome',
+            use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+        },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+        {
+            name: 'firefox',
+            use: { ...devices['Desktop Firefox'] },
+        },
 
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
+        {
+            name: 'webkit',
+            use: { ...devices['Desktop Safari'] },
+        },
+
+        {
+            name: 'chromeSetup',
+            use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+            testMatch: /.*\.setup\.js/,
+        },
+
+        {
+            name: 'singleLoginChrome',
+            use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+            dependencies: ['chromeSetup'],
+            testMatch: /.*fixture\.spec\.js/,
+        },
+
+        /* Test against mobile viewports. */
+        // {
+        //   name: 'Mobile Chrome',
+        //   use: { ...devices['Pixel 5'] },
+        // },
+        // {
+        //   name: 'Mobile Safari',
+        //   use: { ...devices['iPhone 12'] },
+        // },
+
+        /* Test against branded browsers. */
+        // {
+        //   name: 'Microsoft Edge',
+        //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+        // },
+        // {
+        //   name: 'Google Chrome',
+        //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+        // },
+    ],
+
+    /* Run your local dev server before starting the tests */
+    // webServer: {
+    //   command: 'npm run start',
+    //   url: 'http://localhost:3000',
+    //   reuseExistingServer: !process.env.CI,
     // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
-  ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
-
