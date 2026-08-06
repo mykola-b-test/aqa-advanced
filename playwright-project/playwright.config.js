@@ -80,6 +80,17 @@ export default defineConfig({
             testMatch: /.*fixture\.spec\.js/,
         },
 
+        {
+            name: 'chromeLesson29',
+            use: {
+                ...devices['Desktop Chrome'],
+                channel: 'chrome',
+                storageState: '.auth/user.json',
+            },
+            dependencies: ['chromeSetup'],
+            testMatch: /.*lesson-29\.spec\.js/,
+        },
+
         /* Test against mobile viewports. */
         // {
         //   name: 'Mobile Chrome',
