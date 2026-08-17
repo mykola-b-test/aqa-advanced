@@ -14,14 +14,15 @@
     "cypress:run:chrome:env:qauto2:lesson_21": "TZ=UTC cypress run --browser chrome --env qauto2=true --spec cypress/e2e/qauto_test/lesson_21.cy.js",
     "merge:reports": "mochawesome-merge cypress/reports/mochawesome/*.json -o cypress/reports/mochawesome/index.json",
     "generate:report": "npx marge cypress/reports/mochawesome/index.json -d cypress/reports/mochawesome/html-report",
-    "cypress:run:chrome:headless:lesson_22": "npx cypress run --headless --browser chrome --spec cypress/e2e/qauto_test/lesson_22_api.cy.js"
+    "cypress:run:chrome:headless:lesson_22": "npx cypress run --headless --browser chrome --spec cypress/e2e/qauto_test/lesson_22_api.cy.js",
+    "cypress:run:firefox:env:qauto": "TZ=UTC cypress run --browser firefox --env qauto=true"
   },
   "dependencies": {
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "cypress": "^15.17.0"
+    "@stylistic/eslint-plugin": "^5.10.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "cypress": "^15.10.0",
     "cypress-mochawesome-reporter": "^4.0.2",
     "cypress-xpath": "^2.0.1",
     "eslint": "^10.5.0",
