@@ -19,7 +19,8 @@
     "playwright:test:chrome:ui:lesson-28:qauto1:chromeSetup": "cross-env TEST_ENV=qauto1 playwright test --ui --project='singleLoginChrome'",
     "playwright:test:chrome:ui:lesson-29:qauto1:chromeLesson29": "cross-env TEST_ENV=qauto1 playwright test --ui --project='chromeLesson29'",
     "playwright:test:chrome:headed:lesson-29:qauto1:chromeLesson29": "cross-env TEST_ENV=qauto1 playwright test --headed --project='chromeLesson29'",
-    "playwright:test:chrome:headed:lesson-29api:qauto1": "cross-env TEST_ENV=qauto1 playwright test e2e/lesson-29-api.spec.js --headed --project='Google Chrome'"
+    "playwright:test:chrome:headed:lesson-29api:qauto1": "cross-env TEST_ENV=qauto1 playwright test e2e/lesson-29-api.spec.js --headed --project='Google Chrome'",
+    "playwright:test:chrome:ci:qauto1": "cross-env TEST_ENV=qauto1 playwright test --project='Google Chrome'"
   },
   "repository": {
     "type": "git",
