@@ -31,6 +31,11 @@ test.describe('API Tests', () => {
             carBrandId: 1,
             carModelId: 3,
         });
+        const addedCarId = responseBody.data.id;
+        const deleteResponse = await defaultRequest.delete(
+            `/api/cars/${addedCarId}`,
+        );
+        expect(deleteResponse.status()).toBe(200);
     });
 
     test('Check 400 Error when adding a new car with missing mileage key', async ({
