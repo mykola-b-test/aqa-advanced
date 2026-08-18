@@ -15,7 +15,8 @@
     "merge:reports": "mochawesome-merge cypress/reports/mochawesome/*.json -o cypress/reports/mochawesome/index.json",
     "generate:report": "npx marge cypress/reports/mochawesome/index.json -d cypress/reports/mochawesome/html-report",
     "cypress:run:chrome:headless:lesson_22": "npx cypress run --headless --browser chrome --spec cypress/e2e/qauto_test/lesson_22_api.cy.js",
-    "cypress:run:firefox:env:qauto": "TZ=UTC cypress run --browser firefox --env qauto=true"
+    "cypress:run:firefox:env:qauto": "TZ=UTC cypress run --browser firefox --env qauto=true",
+    "cypress:run:chrome:env:qauto": "TZ=UTC cypress run --spec cypress/e2e/qauto_test/* --browser chrome --env qauto=true"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.10.0"
